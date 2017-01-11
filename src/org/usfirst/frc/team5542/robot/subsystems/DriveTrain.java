@@ -1,6 +1,7 @@
 package org.usfirst.frc.team5542.robot.subsystems;
 
 import org.usfirst.frc.team5542.robot.RobotMap;
+import org.usfirst.frc.team5542.robot.commands.FprDrive;
 
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Talon;
@@ -39,7 +40,7 @@ public class DriveTrain extends Subsystem {
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        //setDefaultCommand(new FprDrive());
+        setDefaultCommand(new FprDrive());
     }
 }
 
