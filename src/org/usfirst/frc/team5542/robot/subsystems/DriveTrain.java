@@ -32,10 +32,14 @@ public class DriveTrain extends Subsystem {
 		}
 		return instance;
 	}
+	
+	public void fprDrive(double move, double turn){
+		myDrive.arcadeDrive(move, turn);
+	}
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+        //setDefaultCommand(new FprDrive());
     }
 }
 
