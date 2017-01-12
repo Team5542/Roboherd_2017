@@ -20,6 +20,7 @@ public class FprDrive extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	System.out.println("Fpr executed");
     	OI oi = new OI();
     	XboxController xbox = oi.getXBox();
     	double y = -xbox.getRawAxis(OI.lyAxis);
