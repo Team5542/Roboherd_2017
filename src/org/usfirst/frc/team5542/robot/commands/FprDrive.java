@@ -20,7 +20,6 @@ public class FprDrive extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	System.out.println("Fpr executed");
     	OI oi = new OI();
     	XboxController xbox = oi.getXBox();
     	double y = -xbox.getRawAxis(OI.lyAxis);
@@ -33,10 +32,9 @@ public class FprDrive extends CommandBase {
     		z = 0;
     	}
     	
-    	y = Math.pow(y, 1.1);
-    	z = Math.pow(z, 1.1);
+    	//y = Math.pow(y, 1.1);
+    	//z = Math.pow(z, 1.1);
     	driveTrain.fprDrive(y, z);
-    	xbox.setRumble(RumbleType.kLeftRumble, 1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
