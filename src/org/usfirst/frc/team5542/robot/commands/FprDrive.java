@@ -32,8 +32,8 @@ public class FprDrive extends CommandBase {
     		z = 0;
     	}
     	
-    	y = Math.pow(y, 1.1);
-    	z = Math.pow(z, 1.1);
+    	//y = Math.pow(y, 1.1);
+    	//z = Math.pow(z, 1.1);
     	driveTrain.fprDrive(y, z);
     }
 
