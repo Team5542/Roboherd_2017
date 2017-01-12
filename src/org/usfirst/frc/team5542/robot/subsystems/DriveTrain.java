@@ -3,8 +3,9 @@ package org.usfirst.frc.team5542.robot.subsystems;
 import org.usfirst.frc.team5542.robot.RobotMap;
 import org.usfirst.frc.team5542.robot.commands.FprDrive;
 
+import com.ctre.CANTalon;
+
 import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -15,13 +16,13 @@ public class DriveTrain extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	private RobotDrive myDrive;
-	private Talon lfMotor, rfMotor, lbMotor, rbMotor;
+	private CANTalon lfMotor, rfMotor, lbMotor, rbMotor;
 	
 	private DriveTrain(){
-		lfMotor = new Talon(RobotMap.leftForwardMotor);
-		rfMotor = new Talon(RobotMap.rightForwardMotor);
-		lbMotor = new Talon(RobotMap.leftBackMotor);
-		rbMotor = new Talon(RobotMap.rightBackMotor);
+		lfMotor = new CANTalon(RobotMap.leftForwardMotor);
+		rfMotor = new CANTalon(RobotMap.rightForwardMotor);
+		lbMotor = new CANTalon(RobotMap.leftBackMotor);
+		rbMotor = new CANTalon(RobotMap.rightBackMotor);
 		myDrive = new RobotDrive(lfMotor, lbMotor, rbMotor, rfMotor);
 	}
 	
