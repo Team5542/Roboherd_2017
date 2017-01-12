@@ -2,6 +2,7 @@ package org.usfirst.frc.team5542.robot.commands;
 
 import org.usfirst.frc.team5542.robot.OI;
 
+import edu.wpi.first.wpilibj.GenericHID.RumbleType;
 import edu.wpi.first.wpilibj.XboxController;
 
 /**
@@ -34,6 +35,7 @@ public class FprDrive extends CommandBase {
     	y = Math.pow(y, 1.1);
     	z = Math.pow(z, 1.1);
     	driveTrain.fprDrive(y, z);
+    	xbox.setRumble(RumbleType.kLeftRumble, 1);
     }
 
     // Make this return true when this Command no longer needs to run execute()

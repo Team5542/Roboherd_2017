@@ -30,6 +30,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		CommandBase.init();
 		oi = new OI();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
@@ -93,7 +94,6 @@ public class Robot extends IterativeRobot {
 		// this line or comment it out.
 		
 		//Initiates teleop.
-		CommandBase.init();
 	}
 
 	/**
