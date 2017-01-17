@@ -34,7 +34,10 @@ public class OI {
 	public XboxController getXBox() {
 		return xbox;
 	}
-
+	
+	public Joystick getJoystick(){
+		return stick;
+	}
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
 	//// joystick.
