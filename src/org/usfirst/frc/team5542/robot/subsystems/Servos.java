@@ -1,6 +1,7 @@
 package org.usfirst.frc.team5542.robot.subsystems;
 
 import org.usfirst.frc.team5542.robot.RobotMap;
+import org.usfirst.frc.team5542.robot.commands.ServoControll;
 
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -28,7 +29,7 @@ public class Servos extends Subsystem {
 	}
 	
     public void initDefaultCommand() {
-        
+        setDefaultCommand(new ServoControll());
     }
     
 }
