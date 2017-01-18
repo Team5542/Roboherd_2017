@@ -11,13 +11,16 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Servos extends Subsystem {
 	
-	private Servo left;
+	private Servo left, right;
 	private Servos(){
 		left = new Servo(RobotMap.leftServo);
+		right = new Servo(RobotMap.rightServo);
 	}
 	
 	public void setSevoPos(double pov){
 		left.set(pov);
+		pov = 1 - pov;
+		right.set(pov);
 	}
 	
 	public static Servos instance;
