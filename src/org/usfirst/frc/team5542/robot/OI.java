@@ -1,5 +1,6 @@
 package org.usfirst.frc.team5542.robot;
 
+import org.usfirst.frc.team5542.robot.commands.CloseServo;
 import org.usfirst.frc.team5542.robot.commands.OpenServo;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -20,7 +21,7 @@ public class OI {
 	public OI(){
 		trigger = new JoystickButton(stick, 1);
 		trigger.whenPressed(new OpenServo());
-		trigger.whenReleased(command);
+		trigger.whenReleased(new CloseServo());
 	}
 	
 	//axis map
