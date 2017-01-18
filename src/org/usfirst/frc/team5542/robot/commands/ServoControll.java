@@ -21,8 +21,9 @@ public class ServoControll extends CommandBase {
     protected void execute() {
     	OI oi = new OI();
     	Joystick stick = oi.getJoystick();
-    	int pov = stick.getPOV();
+    	double pov = stick.getPOV();
     	pov = pov / 360;
+    	servos.setSevoPos(pov);
     }
 
     // Make this return true when this Command no longer needs to run execute()

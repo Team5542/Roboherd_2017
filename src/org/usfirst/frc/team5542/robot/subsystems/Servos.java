@@ -16,8 +16,8 @@ public class Servos extends Subsystem {
 		left = new Servo(RobotMap.leftServo);
 	}
 	
-	public void setSevoPos(int pos){
-		left.set(pos);
+	public void setSevoPos(double pov){
+		left.set(pov);
 	}
 	
 	public static Servos instance;
