@@ -1,7 +1,6 @@
 package org.usfirst.frc.team5542.robot.subsystems;
 
 import org.usfirst.frc.team5542.robot.RobotMap;
-import org.usfirst.frc.team5542.robot.commands.OpenServo;
 
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -11,16 +10,18 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Servos extends Subsystem {
 	
-	private Servo left, right;
+	private Servo gate, kick;
 	private Servos(){
-		left = new Servo(RobotMap.leftServo);
-		right = new Servo(RobotMap.rightServo);
+		gate = new Servo(RobotMap.leftServo);
+		kick = new Servo(RobotMap.rightServo);
 	}
 	
-	public void setSevoPos(double pov){
-		left.set(pov);
-		pov = 1 - pov;
-		right.set(pov);
+	public void setGatePos(double pos){
+		gate.set(pos);
+	}
+	
+	public void setKickPos(double pos){
+		kick.set(pos);
 	}
 	
 	public static Servos instance;

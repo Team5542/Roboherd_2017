@@ -1,13 +1,13 @@
 package org.usfirst.frc.team5542.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.Timer;
 
 /**
  *
  */
-public class CloseServo extends CommandBase {
+public class KickGear extends CommandBase {
 
-    public CloseServo() {
+    public KickGear() {
         requires(servos);
     }
 
@@ -17,7 +17,9 @@ public class CloseServo extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	servos.setSevoPos(0);
+    	servos.setGatePos(1);
+    	Timer.delay(2);
+    	servos.setKickPos(1);
     }
 
     // Make this return true when this Command no longer needs to run execute()

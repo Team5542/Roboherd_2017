@@ -1,15 +1,13 @@
 package org.usfirst.frc.team5542.robot.commands;
 
-import org.usfirst.frc.team5542.robot.OI;
-
-import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Timer;
 
 /**
  *
  */
-public class OpenServo extends CommandBase {
+public class CloseGear extends CommandBase {
 
-    public OpenServo() {
+    public CloseGear() {
         requires(servos);
     }
 
@@ -19,13 +17,9 @@ public class OpenServo extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	/*OI oi = new OI();
-    	*Joystick stick = oi.getJoystick();
-    	*double pov = stick.getPOV();
-    	*pov = pov / 360;
-    	*servos.setSevoPos(pov);
-    	*/
-    	servos.setSevoPos(1);
+    	servos.setKickPos(0);
+    	Timer.delay(2);
+    	servos.setGatePos(0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
