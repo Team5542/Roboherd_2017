@@ -16,7 +16,7 @@ public class OI {
 	Joystick stick = new Joystick(1);
 	
 	public OI(){
-		Button trigger = new JoystickButton(stick, 0);
+		Button trigger = new JoystickButton(stick, 1);
 		trigger.whenPressed(new ServoControll());
 	}
 	
