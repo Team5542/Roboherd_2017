@@ -1,6 +1,6 @@
 package org.usfirst.frc.team5542.robot;
 
-import org.usfirst.frc.team5542.robot.commands.ServoControll;
+import org.usfirst.frc.team5542.robot.commands.OpenServo;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
@@ -15,9 +15,12 @@ public class OI {
 	XboxController xbox = new XboxController(0);
 	Joystick stick = new Joystick(1);
 	
+	public static Button trigger;
+	
 	public OI(){
-		Button trigger = new JoystickButton(stick, 1);
-		trigger.whenPressed(new ServoControll());
+		trigger = new JoystickButton(stick, 1);
+		trigger.whenPressed(new OpenServo());
+		trigger.whenReleased(command);
 	}
 	
 	//axis map

@@ -1,7 +1,7 @@
 package org.usfirst.frc.team5542.robot.subsystems;
 
 import org.usfirst.frc.team5542.robot.RobotMap;
-import org.usfirst.frc.team5542.robot.commands.ServoControll;
+import org.usfirst.frc.team5542.robot.commands.OpenServo;
 
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.command.Subsystem;

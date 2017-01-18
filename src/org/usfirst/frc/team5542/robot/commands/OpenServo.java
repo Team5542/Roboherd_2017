@@ -7,15 +7,14 @@ import edu.wpi.first.wpilibj.Joystick;
 /**
  *
  */
-public class ServoControll extends CommandBase {
+public class OpenServo extends CommandBase {
 
-    public ServoControll() {
+    public OpenServo() {
         requires(servos);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	servos.setSevoPos(1);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -26,6 +25,7 @@ public class ServoControll extends CommandBase {
     	*pov = pov / 360;
     	*servos.setSevoPos(pov);
     	*/
+    	servos.setSevoPos(1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -35,7 +35,6 @@ public class ServoControll extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-    	servos.setSevoPos(0);
     }
 
     // Called when another command which requires one or more of the same
