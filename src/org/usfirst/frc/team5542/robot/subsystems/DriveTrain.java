@@ -7,6 +7,7 @@ import com.ctre.CANTalon;
 
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -36,6 +37,10 @@ public class DriveTrain extends Subsystem {
 	}
 	
 	public void fprDrive(double move, double turn){
+		move = Math.pow(move, 2);
+		turn = Math.pow(turn, 2);
+		SmartDashboard.putNumber("move", move);
+		SmartDashboard.putNumber("turn", turn);
 		myDrive.arcadeDrive(move, turn);
 	}
 
