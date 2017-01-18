@@ -32,7 +32,7 @@ public class Servos extends Subsystem {
 	}
 	
     public void initDefaultCommand() {
-        setDefaultCommand(new ServoControll());
+        //setDefaultCommand(new ServoControll());
     }
     
 }
