@@ -36,6 +36,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         UsbCamera camera = new UsbCamera("Camera", 0);
         camera.setFPS(11);
+        camera.setResolution(320, 240);
         CameraServer server = CameraServer.getInstance();
         server.startAutomaticCapture(camera);
 		// chooser.addObject("My Auto", new MyAutoCommand());
