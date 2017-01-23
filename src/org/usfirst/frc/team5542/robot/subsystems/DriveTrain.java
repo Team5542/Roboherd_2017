@@ -27,7 +27,7 @@ public class DriveTrain extends Subsystem {
 		myDrive = new RobotDrive(lfMotor, lbMotor, rbMotor, rfMotor);
 	}
 	
-	public static DriveTrain instance;
+	protected static DriveTrain instance;
 	
 	public static DriveTrain getInstance() {
 		if(instance == null) {
