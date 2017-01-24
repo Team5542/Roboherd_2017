@@ -1,6 +1,7 @@
 package org.usfirst.frc.team5542.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  *
@@ -18,8 +19,14 @@ public class CloseGear extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	servos.setKickPos(0);
-    	Timer.delay(2);
-    	servos.setGatePos(0);
+    	new Timer().schedule(new TimerTask(){
+
+			@Override
+			public void run() {
+		    	servos.setGatePos(0);
+			}
+    		
+    	}, 2000);
     }
 
     // Make this return true when this Command no longer needs to run execute()

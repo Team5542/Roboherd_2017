@@ -1,6 +1,7 @@
 package org.usfirst.frc.team5542.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  *
@@ -18,8 +19,14 @@ public class KickGear extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	servos.setGatePos(.5);
-    	Timer.delay(2);
-    	servos.setKickPos(.25);
+    	new Timer().schedule(new TimerTask(){
+
+			@Override
+			public void run() {
+		    	servos.setKickPos(.25);
+			}
+    		
+    	}, 2000);
     }
 
     // Make this return true when this Command no longer needs to run execute()
