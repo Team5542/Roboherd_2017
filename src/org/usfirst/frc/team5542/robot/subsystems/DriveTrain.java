@@ -38,14 +38,14 @@ public class DriveTrain extends Subsystem {
 	
 	public void fprDrive(double move, double turn){
 		if(move < 0){
-			move = -Math.pow(move, 2);
+			move = -Math.pow(move, 3);
 		} else {
-			move = Math.pow(move, 2);
+			move = Math.pow(move, 3);
 		}
 		if(turn < 0){
-			turn = -Math.pow(turn, 2);
+			turn = -Math.pow(turn, 3);
 		} else {
-			turn = Math.pow(turn, 2);
+			turn = Math.pow(turn, 3);
 		}
 		SmartDashboard.putNumber("move", move);
 		SmartDashboard.putNumber("turn", turn);
