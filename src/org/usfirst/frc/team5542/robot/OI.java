@@ -1,7 +1,9 @@
 package org.usfirst.frc.team5542.robot;
 
 import org.usfirst.frc.team5542.robot.commands.CloseGear;
+import org.usfirst.frc.team5542.robot.commands.HoldPos;
 import org.usfirst.frc.team5542.robot.commands.KickGear;
+import org.usfirst.frc.team5542.robot.commands.ReleasePos;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
@@ -20,11 +22,20 @@ public class OI {
 		Button trigger;
 		Button thumb;
 		
+		Button button3;
+		Button button4;
+		
 		trigger = new JoystickButton(stick, 1);
 		trigger.whenPressed(new KickGear());
 		
 		thumb = new JoystickButton(stick, 2);
 		thumb.whenPressed(new CloseGear());
+		
+		button3 = new JoystickButton(stick, 3);
+		button3.whenPressed(new HoldPos());
+		
+		button4 = new JoystickButton(stick, 4);
+		button4.whenPressed(new ReleasePos());
 	}
 	
 	//axis map

@@ -38,8 +38,8 @@ public class HoldBot extends PIDSubsystem {
         lifter.set(output);
     }
     
-    public void enablePID(double setPoint){
-    	setSetpoint(setPoint);
+    public void enablePID(){
+    	setSetpoint(lifter.getEncPosition());
     	enable();
     }
     
