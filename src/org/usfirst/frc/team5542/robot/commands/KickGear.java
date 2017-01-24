@@ -17,9 +17,9 @@ public class KickGear extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	servos.setGatePos(.5);
+    	servos.setGatePos(.25);
     	Timer.delay(2);
-    	servos.setKickPos(1);
+    	servos.setKickPos(.25);
     }
 
     // Make this return true when this Command no longer needs to run execute()

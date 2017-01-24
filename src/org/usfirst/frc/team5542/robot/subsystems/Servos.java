@@ -12,8 +12,8 @@ public class Servos extends Subsystem {
 	
 	private Servo gate, kick;
 	private Servos(){
-		gate = new Servo(RobotMap.leftServo);
-		kick = new Servo(RobotMap.rightServo);
+		gate = new Servo(RobotMap.gateServo);
+		kick = new Servo(RobotMap.kickServo);
 	}
 	
 	public void setGatePos(double pos){
