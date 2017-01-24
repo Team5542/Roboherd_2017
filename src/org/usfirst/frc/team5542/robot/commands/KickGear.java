@@ -23,10 +23,10 @@ public class KickGear extends CommandBase {
 
 			@Override
 			public void run() {
-		    	servos.setKickPos(.25);
+		    	servos.setKickPos(.5);
 			}
     		
-    	}, 2000);
+    	}, 1000);
     }
 
     // Make this return true when this Command no longer needs to run execute()

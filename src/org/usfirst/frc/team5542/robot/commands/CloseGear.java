@@ -26,7 +26,7 @@ public class CloseGear extends CommandBase {
 		    	servos.setGatePos(0);
 			}
     		
-    	}, 2000);
+    	}, 1000);
     }
 
     // Make this return true when this Command no longer needs to run execute()
