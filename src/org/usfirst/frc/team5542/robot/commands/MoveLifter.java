@@ -27,14 +27,6 @@ public class MoveLifter extends CommandBase {
     		y = 0;
     	}
     	
-    	if(y > 0.5){
-    		y = .5;
-    	}
-    	
-    	if(y < -.5){
-    		y = -.5;
-    	}
-    	
     	arm.setArmPower(y);
     }
 
