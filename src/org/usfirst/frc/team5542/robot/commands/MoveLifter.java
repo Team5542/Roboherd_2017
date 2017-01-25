@@ -2,7 +2,7 @@ package org.usfirst.frc.team5542.robot.commands;
 
 import org.usfirst.frc.team5542.robot.OI;
 
-import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 
 /**
  *
@@ -20,8 +20,8 @@ public class MoveLifter extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	OI oi = new OI();
-    	Joystick stick = oi.getJoystick();
-    	double y = stick.getRawAxis(OI.stickY);
+    	XboxController xbox = oi.getXBox();
+    	double y = -xbox.getRawAxis(OI.lyAxis);
     	
     	if(y < 0.10 && y > -0.10){
     		y = 0;

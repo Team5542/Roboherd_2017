@@ -2,7 +2,7 @@ package org.usfirst.frc.team5542.robot.commands;
 
 import org.usfirst.frc.team5542.robot.OI;
 
-import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.Joystick;
 
 /**
  *
@@ -20,9 +20,9 @@ public class FprDrive extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	OI oi = new OI();
-    	XboxController xbox = oi.getXBox();
-    	double y = -xbox.getRawAxis(OI.lyAxis);
-    	double z = -xbox.getRawAxis(OI.lxAxis);
+    	Joystick stick = oi.getJoystick();
+    	double y = -stick.getRawAxis(OI.stickY);
+    	double z = -stick.getRawAxis(OI.stickZ);
     	
     	if(y < 0.10 && y > -0.10){
     		y = 0;
