@@ -41,6 +41,7 @@ public class DriveTrain extends Subsystem {
 		turn *= sensitivity;
 		SmartDashboard.putNumber("move", move);
 		SmartDashboard.putNumber("turn", turn);
+		SmartDashboard.putNumber("slider", sensitivity);
 		myDrive.arcadeDrive(move, turn);
 	}
 
