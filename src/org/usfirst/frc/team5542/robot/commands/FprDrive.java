@@ -39,7 +39,7 @@ public class FprDrive extends CommandBase {
     	
     	//y = Math.pow(y, 1.1);
     	//z = Math.pow(z, 1.1);
-    	driveTrain.fprDrive(y, z, 0);
+    	driveTrain.fprDrive(y, z, slider);
     }
 
     // Make this return true when this Command no longer needs to run execute()
