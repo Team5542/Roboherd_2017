@@ -3,7 +3,6 @@ package org.usfirst.frc.team5542.robot;
 
 import org.usfirst.frc.team5542.robot.commands.CommandBase;
 
-import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -34,11 +33,8 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		CommandBase.init();
 		oi = new OI();
-        UsbCamera camera = new UsbCamera("Camera", 0);
-        camera.setFPS(11);
-        camera.setResolution(320, 240);
         CameraServer server = CameraServer.getInstance();
-        server.startAutomaticCapture(camera);
+        server.startAutomaticCapture();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 	}

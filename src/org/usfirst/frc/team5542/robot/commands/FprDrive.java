@@ -23,6 +23,12 @@ public class FprDrive extends CommandBase {
     	Joystick stick = oi.getJoystick();
     	double y = -stick.getRawAxis(OI.stickY);
     	double z = -stick.getRawAxis(OI.stickZ);
+    	double slider = - stick.getRawAxis(OI.slider);
+    	if(slider == 0){
+    		slider = .5;
+    	} else {
+    		slider *= 10;
+    	}
     	
     	if(y < 0.10 && y > -0.10){
     		y = 0;
@@ -33,7 +39,7 @@ public class FprDrive extends CommandBase {
     	
     	//y = Math.pow(y, 1.1);
     	//z = Math.pow(z, 1.1);
-    	driveTrain.fprDrive(y, z);
+    	driveTrain.fprDrive(y, z, 0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -48,6 +54,6 @@ public class FprDrive extends CommandBase {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	driveTrain.fprDrive(0, 0);
+    	driveTrain.fprDrive(0, 0, .5);
     }
 }
