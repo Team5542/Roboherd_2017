@@ -23,9 +23,11 @@ public class MoveLifter extends CommandBase {
     	XboxController xbox = oi.getXBox();
     	double y = -xbox.getRawAxis(OI.lyAxis);
     	
-    	if(y < 0.10 && y > -0.10){
+    	if(y < 0.20 && y > -0.20){
     		y = 0;
     	}
+    	
+    	y /= 3;
     	
     	arm.setArmPower(y);
     }
