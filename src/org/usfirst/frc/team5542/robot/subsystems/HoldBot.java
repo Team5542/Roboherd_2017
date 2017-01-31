@@ -12,7 +12,8 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
 public class HoldBot extends PIDSubsystem {
 
     // Initialize your subsystem here
-	CANTalon lifter = new CANTalon(RobotMap.liftMotor);
+	CANTalon lifterTop = new CANTalon(RobotMap.liftMotorTop);
+	CANTalon lifterBottom = new CANTalon(RobotMap.liftMotorBottom);
 	
     public HoldBot() {
     	super("Lifter", 1.0, 0, 0);
@@ -31,15 +32,16 @@ public class HoldBot extends PIDSubsystem {
         // Return your input value for the PID loop
         // e.g. a sensor, like a potentiometer:
         // yourPot.getAverageVoltage() / kYourMaxVoltage;
-        return lifter.getEncPosition();
+        return lifterTop.getEncPosition();
     }
 
     protected void usePIDOutput(double output) {
-        lifter.set(output);
+        lifterTop.set(output);
+        lifterBottom.set(output);
     }
     
     public void enablePID(){
-    	setSetpoint(lifter.getEncPosition());
+    	setSetpoint(lifterTop.getEncPosition());
     	enable();
     }
     

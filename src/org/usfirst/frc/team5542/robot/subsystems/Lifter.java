@@ -12,10 +12,11 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Lifter extends Subsystem {
 	
-	private CANTalon armMotor;
+	private CANTalon lifterTop, lifterBottom;
 	
 	public Lifter(){
-		armMotor = new CANTalon(RobotMap.liftMotor);
+		lifterTop = new CANTalon(RobotMap.liftMotorTop);
+		lifterBottom = new CANTalon(RobotMap.liftMotorBottom);
 	}
 	
 	protected static Lifter instance;
@@ -27,7 +28,8 @@ public class Lifter extends Subsystem {
 	}
 	
 	public void setArmPower(double power){
-		armMotor.set(power);
+		lifterTop.set(power);
+		lifterBottom.set(power);
 	}
 	
     public void initDefaultCommand() {
