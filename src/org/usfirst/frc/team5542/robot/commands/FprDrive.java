@@ -24,11 +24,7 @@ public class FprDrive extends CommandBase {
     	double y = -stick.getRawAxis(OI.stickY);
     	double z = -stick.getRawAxis(OI.stickZ);
     	double slider = -stick.getRawAxis(OI.slider);
-    	if(slider == 0){
-    		slider = .2;
-    	} else {
-    		slider *= 2;
-    	}
+    	slider *= 2;
     	
     	if(y < 0.10 && y > -0.10){
     		y = 0;
