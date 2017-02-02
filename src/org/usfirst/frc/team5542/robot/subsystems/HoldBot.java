@@ -37,7 +37,7 @@ public class HoldBot extends PIDSubsystem {
 
     protected void usePIDOutput(double output) {
         lifterTop.set(output);
-        lifterBottom.set(-output);
+        lifterBottom.set(output);
     }
     
     public void enablePID(){

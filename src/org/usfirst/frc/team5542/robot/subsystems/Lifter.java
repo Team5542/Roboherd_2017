@@ -29,7 +29,7 @@ public class Lifter extends Subsystem {
 	
 	public void setArmPower(double power){
 		lifterTop.set(power);
-		lifterBottom.set(-power);
+		lifterBottom.set(power);
 	}
 	
     public void initDefaultCommand() {
