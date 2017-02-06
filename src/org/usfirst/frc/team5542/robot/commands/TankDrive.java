@@ -22,7 +22,7 @@ public class TankDrive extends CommandBase {
     	OI oi = new OI();
     	XboxController xbox = oi.getXBox();
     	double left = -xbox.getRawAxis(OI.lyAxis);
-    	double right = xbox.getRawAxis(OI.ryAxis);
+    	double right = -xbox.getRawAxis(OI.ryAxis);
     	driveTrain.tankDrive(left, right, 1);
     }
 
