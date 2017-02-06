@@ -2,15 +2,15 @@ package org.usfirst.frc.team5542.robot.commands;
 
 import org.usfirst.frc.team5542.robot.OI;
 
-import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 
 /**
  *
  */
-public class MoveLifter extends CommandBase {
+public class TankDrive extends CommandBase {
 
-    public MoveLifter() {
-        requires(arm);
+    public TankDrive() {
+        requires(driveTrain);
     }
 
     // Called just before this Command runs the first time
@@ -20,14 +20,10 @@ public class MoveLifter extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	OI oi = new OI();
-    	Joystick stick = oi.getJoystick();
-    	double y = -stick.getRawAxis(OI.lyAxis);
-    	
-    	if(y < 0.20 && y > -0.20){
-    		y = 0;
-    	}
-    	
-    	arm.setArmPower(y);
+    	XboxController xbox = oi.getXBox();
+    	double left = -xbox.getRawAxis(OI.lyAxis);
+    	double right = xbox.getRawAxis(OI.ryAxis);
+    	driveTrain.tankDrive(left, right, 1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -42,6 +38,6 @@ public class MoveLifter extends CommandBase {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	arm.setArmPower(0);
+    	
     }
 }

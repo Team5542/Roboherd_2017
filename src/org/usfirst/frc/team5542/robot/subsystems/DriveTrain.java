@@ -1,7 +1,8 @@
 package org.usfirst.frc.team5542.robot.subsystems;
 
 import org.usfirst.frc.team5542.robot.RobotMap;
-import org.usfirst.frc.team5542.robot.commands.FprDrive;
+//import org.usfirst.frc.team5542.robot.commands.FprDrive;
+import org.usfirst.frc.team5542.robot.commands.TankDrive;
 
 import com.ctre.CANTalon;
 
@@ -44,10 +45,20 @@ public class DriveTrain extends Subsystem {
 		SmartDashboard.putNumber("slider", sensitivity);
 		myDrive.arcadeDrive(move, turn);
 	}
+	
+	public void tankDrive(double left, double right, double sensitivity){
+		left *= sensitivity;
+		right *= sensitivity;
+		SmartDashboard.putNumber("left", left);
+		SmartDashboard.putNumber("right", right);
+		SmartDashboard.putNumber("sensitivity", sensitivity);
+		myDrive.arcadeDrive(left, right);
+	}
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        setDefaultCommand(new FprDrive());
+        //setDefaultCommand(new FprDrive());
+    	setDefaultCommand(new TankDrive());
     }
 }
 
