@@ -52,7 +52,7 @@ public class DriveTrain extends Subsystem {
 		SmartDashboard.putNumber("left", left);
 		SmartDashboard.putNumber("right", right);
 		SmartDashboard.putNumber("sensitivity", sensitivity);
-		myDrive.arcadeDrive(left, right);
+		myDrive.tankDrive(left, right);
 	}
 
     public void initDefaultCommand() {
