@@ -26,22 +26,28 @@ public class TankDrive extends CommandBase {
     	double right = -xbox.getRawAxis(OI.ryAxis);
     	if(left < 0.10 && left > -0.10){
     		left = 0;
-    	} 
+    	}
+    	
     	if(right < 0.10 && right > -0.10){
     		right = 0;
     	}
+    	
     	int pov = xbox.getPOV();
+    	
     	if(pov >= 315 || pov <= 45){
     		sensitivity = sensitivity + .3;
     	} else if (pov <= 255 && pov >= 135){
     		sensitivity = sensitivity - .3;
     	}
+    	
     	if(sensitivity <= 0){
     		sensitivity = 0;
     	}
+    	
     	if(sensitivity >= 2){
     		sensitivity = 2;
     	}
+    	
     	driveTrain.tankDrive(left, right, sensitivity);
     }
 
