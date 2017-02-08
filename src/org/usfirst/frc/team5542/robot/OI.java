@@ -17,26 +17,26 @@ public class OI {
 	Joystick stick = new Joystick(1);
 	
 	public OI(){
-		//Button trigger;
-		//Button thumb;
+		Button trigger;
+		Button thumb;
 		
 		//Button button3;
 		//Button button4;
 		
-		Button leftBumper;
-		Button rightBumper;
+		//Button leftBumper;
+		//Button rightBumper;
 		
-		leftBumper = new JoystickButton(xbox, 5);
-		leftBumper.whenPressed(new CloseGear());
+		//leftBumper = new JoystickButton(xbox, 5);
+		//leftBumper.whenPressed(new CloseGear());
 		
-		rightBumper = new JoystickButton(xbox, 6);
-		rightBumper.whenPressed(new KickGear());
+		//rightBumper = new JoystickButton(xbox, 6);
+		//rightBumper.whenPressed(new KickGear());
 		
-		//trigger = new JoystickButton(stick, 1);
-		//trigger.whenPressed(new KickGear());
+		trigger = new JoystickButton(stick, 1);
+		trigger.whenPressed(new KickGear());
 		
-		//thumb = new JoystickButton(stick, 2);
-		//thumb.whenPressed(new CloseGear());
+		thumb = new JoystickButton(stick, 2);
+		thumb.whenPressed(new CloseGear());
 		
 		//button3 = new JoystickButton(stick, 3);
 		//button3.whenPressed(new HoldPos());
