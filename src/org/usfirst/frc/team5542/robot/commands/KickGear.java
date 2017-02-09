@@ -23,7 +23,7 @@ public class KickGear extends CommandBase {
 
 			@Override
 			public void run() {
-		    	servos.setKickPos(.45);
+		    	servos.setKickPos(.35);
 			}
     		
     	}, 1000);
