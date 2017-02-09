@@ -18,12 +18,12 @@ public class KickGear extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	servos.setGatePos(.5);
+    	servos.setGatePos(.45);
     	new Timer().schedule(new TimerTask(){
 
 			@Override
 			public void run() {
-		    	servos.setKickPos(.5);
+		    	servos.setKickPos(.45);
 			}
     		
     	}, 1000);
