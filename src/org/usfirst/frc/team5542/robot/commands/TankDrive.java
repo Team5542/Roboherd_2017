@@ -36,9 +36,9 @@ public class TankDrive extends CommandBase {
     	int pov = xbox.getPOV();
     	
     	if(pov >= 315 || pov <= 45 && pov >= 0){
-    		sensitivity = sensitivity + .001;
+    		sensitivity = sensitivity + .005;
     	} else if (pov <= 255 && pov >= 135){
-    		sensitivity = sensitivity - .001;
+    		sensitivity = sensitivity - .005;
     	}
     	
     	if(sensitivity <= 0){
