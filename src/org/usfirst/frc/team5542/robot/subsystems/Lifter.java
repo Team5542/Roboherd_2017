@@ -6,17 +6,17 @@ import org.usfirst.frc.team5542.robot.commands.MoveLifter;
 import com.ctre.CANTalon;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
 public class Lifter extends Subsystem {
 	
-	private CANTalon lifterTop, lifterBottom;
+	private CANTalon lifterTop;
 	
 	public Lifter(){
 		lifterTop = new CANTalon(RobotMap.liftMotorTop);
-		lifterBottom = new CANTalon(RobotMap.liftMotorBottom);
 	}
 	
 	protected static Lifter instance;
@@ -27,9 +27,12 @@ public class Lifter extends Subsystem {
 		return instance;
 	}
 	
+	public static double encoder = 0.0;
+	
 	public void setArmPower(double power){
 		lifterTop.set(power);
-		lifterBottom.set(power);
+		encoder = lifterTop.getEncPosition();
+		SmartDashboard.putNumber("encoder", lifterTop.getEncPosition());
 	}
 	
     public void initDefaultCommand() {

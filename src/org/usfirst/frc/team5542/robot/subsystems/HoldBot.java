@@ -5,6 +5,7 @@ import org.usfirst.frc.team5542.robot.RobotMap;
 import com.ctre.CANTalon;
 
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -13,11 +14,11 @@ public class HoldBot extends PIDSubsystem {
 
     // Initialize your subsystem here
 	CANTalon lifterTop = new CANTalon(RobotMap.liftMotorTop);
-	CANTalon lifterBottom = new CANTalon(RobotMap.liftMotorBottom);
 	
     public HoldBot() {
-    	super("Lifter", 1.0, 0, 0);
-    	setAbsoluteTolerance(.2);
+    	super("Lifter", 0.00005, 1.0, 1.0);
+    	setAbsoluteTolerance(1000.0);
+    	SmartDashboard.putData("PID", this);
         // Use these to get going:
         // setSetpoint() -  Sets where the PID controller should move the system
         //                  to
@@ -36,12 +37,13 @@ public class HoldBot extends PIDSubsystem {
     }
 
     protected void usePIDOutput(double output) {
-        lifterTop.set(output);
-        lifterBottom.set(output);
+    	output = output / 3;
+        lifterTop.set(-output);
     }
     
     public void enablePID(){
-    	setSetpoint(lifterTop.getEncPosition());
+    	setSetpoint(Lifter.encoder);
+    	SmartDashboard.putNumber("enc pos at enable", Lifter.encoder);
     	enable();
     }
     

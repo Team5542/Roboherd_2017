@@ -3,7 +3,9 @@ package org.usfirst.frc.team5542.robot;
 import org.usfirst.frc.team5542.robot.commands.CloseGear;
 import org.usfirst.frc.team5542.robot.commands.DropperDown;
 import org.usfirst.frc.team5542.robot.commands.DropperUp;
+import org.usfirst.frc.team5542.robot.commands.HoldPos;
 import org.usfirst.frc.team5542.robot.commands.KickGear;
+import org.usfirst.frc.team5542.robot.commands.ReleasePos;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
@@ -22,8 +24,8 @@ public class OI {
 		Button trigger;
 		Button thumb;
 		
-		//Button button3;
-		//Button button4;
+		Button button3;
+		Button button4;
 		
 		Button button5;
 		Button button6;
@@ -43,19 +45,19 @@ public class OI {
 		thumb = new JoystickButton(stick, 2);
 		thumb.whenPressed(new CloseGear());
 		
-		//button3 = new JoystickButton(stick, 3);
-		//button3.whenPressed(new HoldPos());
+		button3 = new JoystickButton(stick, 3);
+		button3.whenPressed(new HoldPos());
 		
-		//button4 = new JoystickButton(stick, 4);
-		//button4.whenPressed(new ReleasePos());
+		button4 = new JoystickButton(stick, 4);
+		button4.whenPressed(new ReleasePos());
 		
 		button5 = new JoystickButton(stick, 5);
-		button5.whenPressed(new DropperUp(true));
-		button5.whenReleased(new DropperUp(false));
+		//button5.whenPressed(new DropperUp(true));
+		//button5.whenReleased(new DropperUp(false));
 		
 		button6 = new JoystickButton(stick, 6);
-		button6.whenPressed(new DropperDown(true));
-		button6.whenReleased(new DropperDown(false));
+		//button6.whenPressed(new DropperDown(true));
+		//button6.whenReleased(new DropperDown(false));
 	}
 	
 	//axis map
