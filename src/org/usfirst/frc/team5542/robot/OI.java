@@ -44,10 +44,10 @@ public class OI {
 		thumb.whenPressed(new CloseGear());
 		
 		button3 = new JoystickButton(stick, 3);
-		button3.whenPressed(new HoldPos());
+		//button3.whenPressed(new HoldPos());
 		
 		button4 = new JoystickButton(stick, 4);
-		button4.whenPressed(new ReleasePos());
+		//button4.whenPressed(new ReleasePos());
 		
 		//button5 = new JoystickButton(stick, 5);
 		//button5.whenPressed(new DropperUp(true));
