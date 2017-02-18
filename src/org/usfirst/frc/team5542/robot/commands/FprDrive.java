@@ -24,7 +24,7 @@ public class FprDrive extends CommandBase {
     	OI oi = new OI();
     	XboxController xbox = oi.getXBox();
     	double move = -xbox.getRawAxis(OI.lyAxis);
-    	double turn = xbox.getRawAxis(OI.rxAxis);
+    	double turn = -xbox.getRawAxis(OI.rxAxis);
     	
     	if(move < 0.10 && move > -0.10){
     		move = 0;
