@@ -31,8 +31,7 @@ public class LineAuto extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        //return ((System.currentTimeMillis() - startTime) >= 4000);
-    	return false;
+        return ((System.currentTimeMillis() - startTime) >= 2600);
     }
 
     // Called once after isFinished returns true
