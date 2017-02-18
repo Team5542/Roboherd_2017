@@ -26,7 +26,14 @@ public class KickLineAuto extends AutoBase {
 			@Override
 			public void run() {
 		    	servos.setKickPos(.35);
-		    	new BackwardLineAuto().start();
+		    	new Timer().schedule(new TimerTask(){
+
+					@Override
+					public void run() {
+				    	new BackwardLineAuto().start();
+					}
+		    		
+		    	}, 1000L);
 			}
     		
     	}, 1000);
