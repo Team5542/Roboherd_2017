@@ -2,7 +2,7 @@
 package org.usfirst.frc.team5542.robot;
 
 import org.usfirst.frc.team5542.robot.commands.CommandBase;
-import org.usfirst.frc.team5542.robot.commands.auto.LineAuto;
+import org.usfirst.frc.team5542.robot.commands.auto.line.ForwardLineAuto;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -36,7 +36,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         CameraServer server = CameraServer.getInstance();
         server.startAutomaticCapture();
-		chooser.addObject("Line auto", new LineAuto());
+		chooser.addObject("Line auto", new ForwardLineAuto());
 		SmartDashboard.putData("Auto mode", chooser);
 	}
 
