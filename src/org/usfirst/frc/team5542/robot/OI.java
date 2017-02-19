@@ -1,9 +1,10 @@
 package org.usfirst.frc.team5542.robot;
 
-import org.usfirst.frc.team5542.robot.commands.CloseGear;
-import org.usfirst.frc.team5542.robot.commands.KickGear;
-
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
+
+import org.usfirst.frc.team5542.robot.commands.gear.CloseGear;
+import org.usfirst.frc.team5542.robot.commands.gear.KickGear;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;

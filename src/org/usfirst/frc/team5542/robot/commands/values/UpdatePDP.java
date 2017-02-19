@@ -1,12 +1,14 @@
-package org.usfirst.frc.team5542.robot.commands;
+package org.usfirst.frc.team5542.robot.commands.values;
+
+import org.usfirst.frc.team5542.robot.commands.CommandBase;
 
 /**
  *
  */
-public class HoldPos extends CommandBase {
+public class UpdatePDP extends CommandBase {
 
-    public HoldPos() {
-        requires(pid);
+    public UpdatePDP() {
+        requires(pdp);
     }
 
     // Called just before this Command runs the first time
@@ -15,12 +17,13 @@ public class HoldPos extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	pid.enablePID();
+    	//Again, was getting errors here yesterday. Don't think these are needed anymore. 
+    	pdp.update();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true

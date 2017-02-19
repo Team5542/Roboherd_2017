@@ -1,15 +1,17 @@
-package org.usfirst.frc.team5542.robot.commands;
+package org.usfirst.frc.team5542.robot.commands.lifter;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import org.usfirst.frc.team5542.robot.OI;
+import org.usfirst.frc.team5542.robot.commands.CommandBase;
+
+import edu.wpi.first.wpilibj.Joystick;
 
 /**
  *
  */
-public class KickGear extends CommandBase {
+public class MoveLifter extends CommandBase {
 
-    public KickGear() {
-        requires(servos);
+    public MoveLifter() {
+        requires(arm);
     }
 
     // Called just before this Command runs the first time
@@ -18,20 +20,24 @@ public class KickGear extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	servos.setGatePos(.45);
-    	new Timer().schedule(new TimerTask(){
-
-			@Override
-			public void run() {
-		    	servos.setKickPos(.35);
-			}
-    		
-    	}, 1000);
+    	OI oi = new OI();
+    	Joystick stick = oi.getJoystick();
+    	double y = -stick.getRawAxis(OI.lyAxis);
+    	
+    	if(y < 0.20 && y > -0.20){
+    		y = 0;
+    	}
+    	
+    	if(y <= 0){
+    		y = 0;
+    	}
+    	
+    	arm.setArmPower(y);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true
@@ -41,5 +47,6 @@ public class KickGear extends CommandBase {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	arm.setArmPower(0);
     }
 }

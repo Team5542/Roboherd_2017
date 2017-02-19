@@ -1,28 +1,33 @@
-package org.usfirst.frc.team5542.robot.commands;
+package org.usfirst.frc.team5542.robot.commands.dropper;
+
+import org.usfirst.frc.team5542.robot.commands.CommandBase;
 
 /**
  *
  */
-public class ReleasePos extends CommandBase {
-
-    public ReleasePos() {
-    	requires(pid);
+public class DropperDown extends CommandBase {
+	
+	static boolean go;
+    public DropperDown(boolean go) {
+    	requires(dropper);
+    	go = go ? false : true;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	pid.dissablePID();
+    	dropper.setPower(-.5);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return go;
     }
-
+    
     // Called once after isFinished returns true
     protected void end() {
     }
@@ -30,5 +35,6 @@ public class ReleasePos extends CommandBase {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	dropper.setPower(0);
     }
 }

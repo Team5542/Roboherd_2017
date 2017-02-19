@@ -1,6 +1,7 @@
-package org.usfirst.frc.team5542.robot.commands;
+package org.usfirst.frc.team5542.robot.commands.drive;
 
 import org.usfirst.frc.team5542.robot.OI;
+import org.usfirst.frc.team5542.robot.commands.CommandBase;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -8,29 +9,29 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class FprDrive extends CommandBase {
+public class TankDrive extends CommandBase {
 
-    public FprDrive() {
+    public TankDrive() {
         requires(driveTrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	
     }
     private static double sensitivity = 1.0;
-
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	OI oi = new OI();
     	XboxController xbox = oi.getXBox();
-    	double move = -xbox.getRawAxis(OI.lyAxis);
-    	double turn = -xbox.getRawAxis(OI.rxAxis);
+    	double left = -xbox.getRawAxis(OI.lyAxis);
+    	double right = -xbox.getRawAxis(OI.ryAxis);
+    	if(left < 0.20 && left > -0.20){
+    		left = 0;
+    	}
     	
-    	if(move < 0.10 && move > -0.10){
-    		move = 0;
-    	} 
-    	if(turn < 0.10 && turn > -0.10){
-    		turn = 0;
+    	if(right < 0.20 && right > -0.20){
+    		right = 0;
     	}
     	
     	int pov = xbox.getPOV();
@@ -51,9 +52,7 @@ public class FprDrive extends CommandBase {
     	
     	SmartDashboard.putNumber("pov", pov);
     	
-    	//y = Math.pow(y, 1.1);
-    	//z = Math.pow(z, 1.1);
-    	driveTrain.fprDrive(move, turn, sensitivity);
+    	driveTrain.tankDrive(left, right, sensitivity);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -68,6 +67,6 @@ public class FprDrive extends CommandBase {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	driveTrain.fprDrive(0, 0, .5);
+    	
     }
 }

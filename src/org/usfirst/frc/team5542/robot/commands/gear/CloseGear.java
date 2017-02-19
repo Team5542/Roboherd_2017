@@ -1,7 +1,9 @@
-package org.usfirst.frc.team5542.robot.commands;
+package org.usfirst.frc.team5542.robot.commands.gear;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
+import org.usfirst.frc.team5542.robot.commands.CommandBase;
 
 /**
  *

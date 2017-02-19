@@ -17,7 +17,6 @@ public class ForwardLineAuto extends AutoBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	SmartDashboard.putBoolean("Driving", true);
     	startTime = System.currentTimeMillis();
     }
 
@@ -33,7 +32,6 @@ public class ForwardLineAuto extends AutoBase {
 
     // Called once after isFinished returns true
     protected void end() {
-    	SmartDashboard.putBoolean("Driving", false);
     	this.executeNextCommand("line");
     }
 

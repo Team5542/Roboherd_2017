@@ -1,14 +1,17 @@
-package org.usfirst.frc.team5542.robot.commands;
+package org.usfirst.frc.team5542.robot.commands.gear;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+import org.usfirst.frc.team5542.robot.commands.CommandBase;
 
 /**
  *
  */
-public class UpdateGyro extends CommandBase {
+public class KickGear extends CommandBase {
 
-    public UpdateGyro() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    	requires(gyro);
+    public KickGear() {
+        requires(servos);
     }
 
     // Called just before this Command runs the first time
@@ -17,12 +20,20 @@ public class UpdateGyro extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	gyro.updateGyro();
+    	servos.setGatePos(.45);
+    	new Timer().schedule(new TimerTask(){
+
+			@Override
+			public void run() {
+		    	servos.setKickPos(.35);
+			}
+    		
+    	}, 1000);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

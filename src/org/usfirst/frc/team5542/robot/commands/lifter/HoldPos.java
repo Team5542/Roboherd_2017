@@ -1,16 +1,14 @@
-package org.usfirst.frc.team5542.robot.commands;
+package org.usfirst.frc.team5542.robot.commands.lifter;
 
-import org.usfirst.frc.team5542.robot.OI;
-
-import edu.wpi.first.wpilibj.Joystick;
+import org.usfirst.frc.team5542.robot.commands.CommandBase;
 
 /**
  *
  */
-public class MoveLifter extends CommandBase {
+public class HoldPos extends CommandBase {
 
-    public MoveLifter() {
-        requires(arm);
+    public HoldPos() {
+        requires(pid);
     }
 
     // Called just before this Command runs the first time
@@ -19,24 +17,12 @@ public class MoveLifter extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	OI oi = new OI();
-    	Joystick stick = oi.getJoystick();
-    	double y = -stick.getRawAxis(OI.lyAxis);
-    	
-    	if(y < 0.20 && y > -0.20){
-    		y = 0;
-    	}
-    	
-    	if(y <= 0){
-    		y = 0;
-    	}
-    	
-    	arm.setArmPower(y);
+    	pid.enablePID();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
@@ -46,6 +32,5 @@ public class MoveLifter extends CommandBase {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	arm.setArmPower(0);
     }
 }

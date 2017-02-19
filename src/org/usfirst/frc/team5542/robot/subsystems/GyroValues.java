@@ -1,6 +1,6 @@
 package org.usfirst.frc.team5542.robot.subsystems;
 
-import org.usfirst.frc.team5542.robot.commands.UpdateGyro;
+import org.usfirst.frc.team5542.robot.commands.values.UpdateGyro;
 
 import com.analog.adis16448.frc.ADIS16448_IMU;
 

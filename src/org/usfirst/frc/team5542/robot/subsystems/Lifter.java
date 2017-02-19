@@ -1,7 +1,7 @@
 package org.usfirst.frc.team5542.robot.subsystems;
 
 import org.usfirst.frc.team5542.robot.RobotMap;
-import org.usfirst.frc.team5542.robot.commands.MoveLifter;
+import org.usfirst.frc.team5542.robot.commands.lifter.MoveLifter;
 
 import com.ctre.CANTalon;
 

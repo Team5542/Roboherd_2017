@@ -1,12 +1,14 @@
-package org.usfirst.frc.team5542.robot.commands;
+package org.usfirst.frc.team5542.robot.commands.dropper;
+
+import org.usfirst.frc.team5542.robot.commands.CommandBase;
 
 /**
  *
  */
-public class DropperDown extends CommandBase {
+public class DropperUp extends CommandBase {
 	
 	static boolean go;
-    public DropperDown(boolean go) {
+    public DropperUp(boolean go) {
     	requires(dropper);
     	go = go ? false : true;
     }
@@ -18,7 +20,7 @@ public class DropperDown extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	dropper.setPower(-.5);
+    	dropper.setPower(.5);
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -1,12 +1,16 @@
-package org.usfirst.frc.team5542.robot.commands;
+package org.usfirst.frc.team5542.robot.commands.values;
+
+import org.usfirst.frc.team5542.robot.commands.CommandBase;
 
 /**
  *
  */
-public class UpdatePDP extends CommandBase {
+public class UpdateGyro extends CommandBase {
 
-    public UpdatePDP() {
-        requires(pdp);
+    public UpdateGyro() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+    	requires(gyro);
     }
 
     // Called just before this Command runs the first time
@@ -15,8 +19,7 @@ public class UpdatePDP extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//Again, was getting errors here yesterday. Don't think these are needed anymore. 
-    	pdp.update();
+    	gyro.updateGyro();
     }
 
     // Make this return true when this Command no longer needs to run execute()

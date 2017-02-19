@@ -1,6 +1,6 @@
 package org.usfirst.frc.team5542.robot.subsystems;
 
-import org.usfirst.frc.team5542.robot.commands.UpdatePDP;
+import org.usfirst.frc.team5542.robot.commands.values.UpdatePDP;
 
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.command.Subsystem;
