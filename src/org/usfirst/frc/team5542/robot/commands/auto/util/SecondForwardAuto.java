@@ -1,13 +1,13 @@
-package org.usfirst.frc.team5542.robot.commands.auto.left;
+package org.usfirst.frc.team5542.robot.commands.auto.util;
 
 import org.usfirst.frc.team5542.robot.commands.auto.AutoBase;
 
 /**
  *
  */
-public class SecondForwardLeftAuto extends AutoBase {
-
-    public SecondForwardLeftAuto() {
+public class SecondForwardAuto extends AutoBase {
+	String autoName;
+    public SecondForwardAuto(String autoName) {
         requires(driveTrain);
     }
     long startTime;
@@ -28,7 +28,7 @@ public class SecondForwardLeftAuto extends AutoBase {
 
     // Called once after isFinished returns true
     protected void end() {
-    	this.executeNextCommand("left");
+    	executeNextCommand(autoName);
     }
 
     // Called when another command which requires one or more of the same

@@ -1,13 +1,13 @@
-package org.usfirst.frc.team5542.robot.commands.auto.left;
+package org.usfirst.frc.team5542.robot.commands.auto.util;
 
 import org.usfirst.frc.team5542.robot.commands.auto.AutoBase;
 
 /**
  *
  */
-public class BackwardLeftAuto extends AutoBase {
-
-    public BackwardLeftAuto() {
+public class FirstForwardAuto extends AutoBase {
+	String autoName;
+    public FirstForwardAuto(String autoName) {
         requires(driveTrain);
     }
     long startTime;
@@ -18,16 +18,17 @@ public class BackwardLeftAuto extends AutoBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	driveTrain.fprDrive(-.5, 0, 1);
+    	driveTrain.fprDrive(.5, 0, 1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return ((System.currentTimeMillis() - startTime) >= 1000);
+        return ((System.currentTimeMillis() - startTime) >= 2500);
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	executeNextCommand(autoName);
     }
 
     // Called when another command which requires one or more of the same

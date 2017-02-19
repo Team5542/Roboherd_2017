@@ -76,18 +76,34 @@ public class OI {
 	
 	/**
 	 * Red = 1
+	 * 
 	 * Blue = 2
 	 */
 	public static int alliance = 0;
-
+	
+	/**
+	 * Get's the xbox controller
+	 * 
+	 * @return xbox controller
+	 */
 	public XboxController getXBox() {
 		return xbox;
 	}
 	
+	/**
+	 * get's the joystick
+	 * 
+	 * @return the joystick
+	 */
 	public Joystick getJoystick(){
 		return stick;
 	}
 	
+	/**
+	 * set's the alliance value so i can call apon it from eveywhere
+	 * 
+	 * @param alliance the alliance
+	 */
 	public void setAlliance(Alliance alliance){
 		if(alliance.equals(Alliance.Blue)){
 			OI.alliance = 2;

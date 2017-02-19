@@ -1,35 +1,39 @@
-package org.usfirst.frc.team5542.robot.commands.auto.line;
+package org.usfirst.frc.team5542.robot.commands.auto;
 
-import org.usfirst.frc.team5542.robot.commands.auto.AutoBase;
+import org.usfirst.frc.team5542.robot.OI;
 
 /**
  *
  */
-public class BackwardLineAuto extends AutoBase {
-	
-    public BackwardLineAuto() {
+public class TurnLeftAuto extends AutoBase {
+
+    public TurnLeftAuto() {
         requires(driveTrain);
     }
     
-    long startTime;
-
+    double angle;
     // Called just before this Command runs the first time
     protected void initialize() {
-    	startTime = System.currentTimeMillis();
+    	if(OI.alliance == 1){
+    		angle = 1.0;
+    	} else { //TODO determine angles
+    		angle = 0.0;
+    	}
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	driveTrain.tankDrive(-.5, -.5, 1);
+    	driveTrain.fprDrive(0, .5, 1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return ((System.currentTimeMillis() - startTime) >= 1000);
+        return (gyro.getGyroX() == angle);
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	executeNextCommand("left");
     }
 
     // Called when another command which requires one or more of the same

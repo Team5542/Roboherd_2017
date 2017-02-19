@@ -3,8 +3,8 @@ package org.usfirst.frc.team5542.robot.commands.auto;
 import java.util.HashMap;
 
 import org.usfirst.frc.team5542.robot.commands.CommandBase;
-import org.usfirst.frc.team5542.robot.commands.auto.left.*;
 import org.usfirst.frc.team5542.robot.commands.auto.line.*;
+import org.usfirst.frc.team5542.robot.commands.auto.util.*;
 
 public abstract class AutoBase extends CommandBase {
 	static HashMap<String, Integer> command = new HashMap<String, Integer>();
@@ -28,13 +28,21 @@ public abstract class AutoBase extends CommandBase {
 	public static void defineGroups(){
 		AutoCommandGroup line = new AutoCommandGroup("line");
 		line.addCommand(new ForwardLineAuto());
-		line.addCommand(new KickLineAuto());
-		line.addCommand(new BackwardLineAuto());
+		line.addCommand(new KickAuto("line"));
+		line.addCommand(new BackwardAuto());
 		
 		AutoCommandGroup left = new AutoCommandGroup("left");
-		left.addCommand(new FirstForwardLeftAuto());
+		left.addCommand(new FirstForwardAuto("left"));
 		left.addCommand(new TurnLeftAuto());
-		left.addCommand(new SecondForwardLeftAuto());
-		left.addCommand(new BackwardLeftAuto());
+		left.addCommand(new SecondForwardAuto("left"));
+		left.addCommand(new KickAuto("left"));
+		left.addCommand(new BackwardAuto());
+		
+		AutoCommandGroup right = new AutoCommandGroup("right");
+		right.addCommand(new FirstForwardAuto("right"));
+		right.addCommand(new TurnRightAuto());
+		right.addCommand(new SecondForwardAuto("right"));
+		right.addCommand(new KickAuto("right"));
+		right.addCommand(new BackwardAuto());
 	}
 }

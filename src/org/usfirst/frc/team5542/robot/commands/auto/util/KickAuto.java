@@ -1,4 +1,4 @@
-package org.usfirst.frc.team5542.robot.commands.auto.left;
+package org.usfirst.frc.team5542.robot.commands.auto.util;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -8,12 +8,13 @@ import org.usfirst.frc.team5542.robot.commands.auto.AutoBase;
 /**
  *
  */
-public class KickLeftAuto extends AutoBase {
-
-    public KickLeftAuto() {
+public class KickAuto extends AutoBase {
+	String autoName;
+    public KickAuto(String autoName) {
         requires(servos);
+        this.autoName = autoName;
     }
-    boolean finished = false;
+    boolean finished;
     // Called just before this Command runs the first time
     protected void initialize() {
     	servos.setGatePos(.45);
@@ -37,6 +38,7 @@ public class KickLeftAuto extends AutoBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	executeNextCommand(autoName);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -46,7 +48,6 @@ public class KickLeftAuto extends AutoBase {
 
     // Called once after isFinished returns true
     protected void end() {
-    	this.executeNextCommand("left");
     }
 
     // Called when another command which requires one or more of the same
