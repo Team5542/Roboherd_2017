@@ -3,6 +3,7 @@ package org.usfirst.frc.team5542.robot;
 import org.usfirst.frc.team5542.robot.commands.CloseGear;
 import org.usfirst.frc.team5542.robot.commands.KickGear;
 
+import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -71,6 +72,12 @@ public class OI {
 	public static final int stickZ = 2;
 	public static final int slider = 3;
 	public static final int pov = 0;
+	
+	/**
+	 * Red = 1
+	 * Blue = 2
+	 */
+	public static int alliance = 0;
 
 	public XboxController getXBox() {
 		return xbox;
@@ -78,6 +85,14 @@ public class OI {
 	
 	public Joystick getJoystick(){
 		return stick;
+	}
+	
+	public void setAlliance(Alliance alliance){
+		if(alliance.equals(Alliance.Blue)){
+			OI.alliance = 2;
+		} else {
+			OI.alliance = 1;
+		}
 	}
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a

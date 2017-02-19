@@ -3,9 +3,8 @@ package org.usfirst.frc.team5542.robot.commands.auto;
 import java.util.HashMap;
 
 import org.usfirst.frc.team5542.robot.commands.CommandBase;
-import org.usfirst.frc.team5542.robot.commands.auto.line.BackwardLineAuto;
-import org.usfirst.frc.team5542.robot.commands.auto.line.ForwardLineAuto;
-import org.usfirst.frc.team5542.robot.commands.auto.line.KickLineAuto;
+import org.usfirst.frc.team5542.robot.commands.auto.left.*;
+import org.usfirst.frc.team5542.robot.commands.auto.line.*;
 
 public abstract class AutoBase extends CommandBase {
 	static HashMap<String, Integer> command = new HashMap<String, Integer>();
@@ -27,9 +26,15 @@ public abstract class AutoBase extends CommandBase {
 	}
 	
 	public static void defineGroups(){
-		AutoCommandGroup group = new AutoCommandGroup("line");
-		group.addCommand(new ForwardLineAuto());
-		group.addCommand(new KickLineAuto());
-		group.addCommand(new BackwardLineAuto());
+		AutoCommandGroup line = new AutoCommandGroup("line");
+		line.addCommand(new ForwardLineAuto());
+		line.addCommand(new KickLineAuto());
+		line.addCommand(new BackwardLineAuto());
+		
+		AutoCommandGroup left = new AutoCommandGroup("left");
+		left.addCommand(new FirstForwardLeftAuto());
+		left.addCommand(new TurnLeftAuto());
+		left.addCommand(new SecondForwardLeftAuto());
+		left.addCommand(new BackwardLeftAuto());
 	}
 }

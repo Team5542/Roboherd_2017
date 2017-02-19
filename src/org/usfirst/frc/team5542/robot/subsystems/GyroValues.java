@@ -26,6 +26,21 @@ public class GyroValues extends Subsystem {
 		SmartDashboard.putNumber("Gyro Z", z);
 	}
 	
+	public double getGyroX(){
+		double x = imu.getAngleX();
+		return x;
+	}
+	
+	public double getGyroY(){
+		double y = imu.getAngleY();
+		return y;
+	}
+	
+	public double getGyroZ(){
+		double z = imu.getAngleZ();
+		return z;
+	}
+	
 	protected static GyroValues instance;
 	public static GyroValues getInstance(){
 		if(instance == null){

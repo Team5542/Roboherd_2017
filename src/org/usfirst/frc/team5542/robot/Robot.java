@@ -3,9 +3,12 @@ package org.usfirst.frc.team5542.robot;
 
 import org.usfirst.frc.team5542.robot.commands.CommandBase;
 import org.usfirst.frc.team5542.robot.commands.auto.AutoBase;
+import org.usfirst.frc.team5542.robot.commands.auto.LeftAuto;
 import org.usfirst.frc.team5542.robot.commands.auto.LineAuto;
 
 import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -38,8 +41,13 @@ public class Robot extends IterativeRobot {
         CameraServer server = CameraServer.getInstance();
         server.startAutomaticCapture();
 		chooser.addObject("Line auto", new LineAuto());
+		chooser.addObject("Left auto", new LeftAuto());
 		SmartDashboard.putData("Auto mode", chooser);
 		AutoBase.defineGroups();
+		DriverStation ds = DriverStation.getInstance();
+		Alliance alliance = ds.getAlliance();
+		oi.setAlliance(alliance);
+		SmartDashboard.putString("Alliance", alliance.name());
 	}
 
 	/**
