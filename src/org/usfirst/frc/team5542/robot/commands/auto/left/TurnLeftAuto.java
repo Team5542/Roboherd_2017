@@ -1,15 +1,17 @@
-package org.usfirst.frc.team5542.robot.commands.auto;
+package org.usfirst.frc.team5542.robot.commands.auto.left;
 
 import org.usfirst.frc.team5542.robot.OI;
+import org.usfirst.frc.team5542.robot.commands.auto.AutoBase;
 
 /**
  *
  */
-public class TurnRightAuto extends AutoBase {
+public class TurnLeftAuto extends AutoBase {
 
-    public TurnRightAuto() {
+    public TurnLeftAuto() {
         requires(driveTrain);
     }
+    
     double angle;
     // Called just before this Command runs the first time
     protected void initialize() {
@@ -22,7 +24,7 @@ public class TurnRightAuto extends AutoBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	driveTrain.fprDrive(0, -.5, 1);
+    	driveTrain.fprDrive(0, .5, 1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -32,7 +34,7 @@ public class TurnRightAuto extends AutoBase {
 
     // Called once after isFinished returns true
     protected void end() {
-    	executeNextCommand("right");
+    	executeNextCommand("left");
     }
 
     // Called when another command which requires one or more of the same

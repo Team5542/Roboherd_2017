@@ -1,4 +1,6 @@
-package org.usfirst.frc.team5542.robot.commands.auto;
+package org.usfirst.frc.team5542.robot.commands.auto.left;
+
+import org.usfirst.frc.team5542.robot.commands.auto.AutoBase;
 
 /**
  *

@@ -3,7 +3,9 @@ package org.usfirst.frc.team5542.robot.commands.auto;
 import java.util.HashMap;
 
 import org.usfirst.frc.team5542.robot.commands.CommandBase;
+import org.usfirst.frc.team5542.robot.commands.auto.left.TurnLeftAuto;
 import org.usfirst.frc.team5542.robot.commands.auto.line.*;
+import org.usfirst.frc.team5542.robot.commands.auto.right.TurnRightAuto;
 import org.usfirst.frc.team5542.robot.commands.auto.util.*;
 
 public abstract class AutoBase extends CommandBase {
