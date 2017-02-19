@@ -41,7 +41,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         CameraServer server = CameraServer.getInstance();
         server.startAutomaticCapture();
-		chooser.addObject("Line auto", new LineAuto());
+		chooser.addDefault("Line auto", new LineAuto());
 		chooser.addObject("Left auto", new LeftAuto());
 		chooser.addObject("Right auto", new RightAuto());
 		SmartDashboard.putData("Auto mode", chooser);
