@@ -16,8 +16,9 @@ public class RobotMap {
 	public static int liftMotorTop = 12;
 	public static int liftMotorBottom = 13;
 	
-	public static int gateServo = 0;
-	public static int kickServo = 1;
+	public static int gateLeftServo = 0;
+	public static int gateRightServo = 1;
+	public static int kickServo = 2;
 	
 	
 	// For example to map the left and right motors, you could define the

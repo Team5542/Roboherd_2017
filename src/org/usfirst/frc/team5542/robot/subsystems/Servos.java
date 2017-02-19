@@ -10,14 +10,16 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Servos extends Subsystem {
 	
-	private Servo gate, kick;
+	private Servo gateLeft, gateRight, kick;
 	private Servos(){
-		gate = new Servo(RobotMap.gateServo);
+		gateLeft = new Servo(RobotMap.gateLeftServo);
+		gateRight = new Servo(RobotMap.gateRightServo);
 		kick = new Servo(RobotMap.kickServo);
 	}
 	
 	public void setGatePos(double pos){
-		gate.set(pos);
+		gateLeft.set(pos);
+		gateRight.set(180 - pos);
 	}
 	
 	public void setKickPos(double pos){
