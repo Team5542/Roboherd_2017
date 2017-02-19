@@ -13,13 +13,9 @@ public class KickLineAuto extends AutoBase {
     public KickLineAuto() {
         requires(servos);
     }
-
+    boolean finished = false;
     // Called just before this Command runs the first time
     protected void initialize() {
-    }
-
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
     	servos.setGatePos(.45);
     	new Timer().schedule(new TimerTask(){
 
@@ -30,7 +26,7 @@ public class KickLineAuto extends AutoBase {
 
 					@Override
 					public void run() {
-				    	new BackwardLineAuto().start();
+				    	finished = true;
 					}
 		    		
 		    	}, 1000L);
@@ -39,14 +35,18 @@ public class KickLineAuto extends AutoBase {
     	}, 1000);
     }
 
+    // Called repeatedly when this Command is scheduled to run
+    protected void execute() {
+    }
+
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return finished;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	
+    	this.executeNextCommand("line");
     }
 
     // Called when another command which requires one or more of the same
