@@ -7,10 +7,7 @@ import org.usfirst.frc.team5542.robot.commands.CommandBase;
  */
 public class DropperDown extends CommandBase {
 	
-	static boolean go;
-    public DropperDown(boolean go) {
-    	requires(dropper);
-    	go = go ? false : true;
+    public DropperDown() {
     }
 
     // Called just before this Command runs the first time
@@ -25,7 +22,7 @@ public class DropperDown extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return go;
+        return true;
     }
     
     // Called once after isFinished returns true

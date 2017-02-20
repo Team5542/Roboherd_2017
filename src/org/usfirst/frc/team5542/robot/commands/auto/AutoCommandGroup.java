@@ -10,6 +10,7 @@ public class AutoCommandGroup {
 	private String name;
 	
 	public AutoCommandGroup(String name){
+		commands = new ArrayList<Command>();
 		this.name = name;
 		groups.put(name, this);
 	}
