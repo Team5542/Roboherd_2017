@@ -2,6 +2,7 @@ package org.usfirst.frc.team5542.robot.subsystems;
 
 import org.usfirst.frc.team5542.robot.commands.values.UpdatePDP;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -11,11 +12,15 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class PDPvalues extends Subsystem {
     PowerDistributionPanel pdp = new PowerDistributionPanel();
+    boolean bat;
     public void update(){
-    	
-    	//Commented this out due to errors yesterday. Was getting errors about 
-    	//channel 12 not functioning correctly, so not sure if you still want these up.
-    	
+    	DriverStation ds = DriverStation.getInstance();
+    	if(ds.getBatteryVoltage() < 12){
+    		bat = false;
+    	} else {
+    		bat = true;
+    	}
+    	SmartDashboard.putBoolean("Battery indecator (Green = good)", bat);
     	for(int i = 0; i <=15; i++){
     		String chanelName = "chanel " + i;
     		double current = pdp.getCurrent(i);

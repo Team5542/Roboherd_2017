@@ -1,6 +1,5 @@
 package org.usfirst.frc.team5542.robot.commands.auto.left;
 
-import org.usfirst.frc.team5542.robot.OI;
 import org.usfirst.frc.team5542.robot.commands.auto.AutoBase;
 
 /**
@@ -15,11 +14,7 @@ public class TurnLeftAuto extends AutoBase {
     double angle;
     // Called just before this Command runs the first time
     protected void initialize() {
-    	if(OI.alliance == 1){
-    		angle = 1.0;
-    	} else { //TODO determine angles
-    		angle = 0.0;
-    	}
+    	angle = 1.0;
     }
 
     // Called repeatedly when this Command is scheduled to run
