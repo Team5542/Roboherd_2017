@@ -19,7 +19,7 @@ public class Servos extends Subsystem {
 	
 	public void setGatePos(double pos){
 		gateLeft.set(pos);
-		gateRight.set(180 - pos);
+		gateRight.set(1 - pos);
 	}
 	
 	public void setKickPos(double pos){
