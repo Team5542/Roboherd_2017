@@ -1,52 +1,33 @@
-package org.usfirst.frc.team5542.robot.commands.auto.line;
-
-import java.util.Timer;
-import java.util.TimerTask;
+package org.usfirst.frc.team5542.robot.commands.auto.middle;
 
 import org.usfirst.frc.team5542.robot.commands.auto.AutoBase;
 
 /**
  *
  */
-public class KickLineAuto extends AutoBase {
+public class MiddleAuto extends AutoBase {
 
-    public KickLineAuto() {
-        requires(servos);
+    public MiddleAuto() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
     }
-    boolean finished = false;
+
     // Called just before this Command runs the first time
     protected void initialize() {
-    	servos.setGatePos(.45);
-    	new Timer().schedule(new TimerTask(){
-
-			@Override
-			public void run() {
-		    	servos.setKickPos(.35);
-		    	new Timer().schedule(new TimerTask(){
-
-					@Override
-					public void run() {
-				    	finished = true;
-					}
-		    		
-		    	}, 1000L);
-			}
-    		
-    	}, 1000);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	this.startCommandGroup("middle");
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return finished;
+        return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	executeNextCommand("line");
     }
 
     // Called when another command which requires one or more of the same

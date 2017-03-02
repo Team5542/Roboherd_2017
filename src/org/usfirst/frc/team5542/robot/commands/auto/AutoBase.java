@@ -5,6 +5,7 @@ import java.util.HashMap;
 import org.usfirst.frc.team5542.robot.commands.CommandBase;
 import org.usfirst.frc.team5542.robot.commands.auto.left.TurnLeftAuto;
 import org.usfirst.frc.team5542.robot.commands.auto.line.*;
+import org.usfirst.frc.team5542.robot.commands.auto.middle.MiddleForwardAuto;
 import org.usfirst.frc.team5542.robot.commands.auto.right.TurnRightAuto;
 import org.usfirst.frc.team5542.robot.commands.auto.util.*;
 
@@ -28,10 +29,10 @@ public abstract class AutoBase extends CommandBase {
 	}
 	
 	public static void defineGroups(){
-		AutoCommandGroup line = new AutoCommandGroup("line");
-		line.addCommand(new ForwardLineAuto());
-		line.addCommand(new KickAuto("line"));
-		line.addCommand(new BackwardAuto());
+		AutoCommandGroup middle = new AutoCommandGroup("middle");
+		middle.addCommand(new MiddleForwardAuto());
+		middle.addCommand(new KickAuto("middle"));
+		middle.addCommand(new BackwardAuto());
 		
 		AutoCommandGroup left = new AutoCommandGroup("left");
 		left.addCommand(new FirstForwardAuto("left"));
@@ -46,5 +47,8 @@ public abstract class AutoBase extends CommandBase {
 		right.addCommand(new SecondForwardAuto("right"));
 		right.addCommand(new KickAuto("right"));
 		right.addCommand(new BackwardAuto());
+		
+		AutoCommandGroup line = new AutoCommandGroup("line");
+		line.addCommand(new LineForwardAuto());
 	}
 }

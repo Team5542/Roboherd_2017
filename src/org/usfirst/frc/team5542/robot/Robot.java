@@ -3,8 +3,9 @@ package org.usfirst.frc.team5542.robot;
 
 import org.usfirst.frc.team5542.robot.commands.CommandBase;
 import org.usfirst.frc.team5542.robot.commands.auto.AutoBase;
-import org.usfirst.frc.team5542.robot.commands.auto.LineAuto;
 import org.usfirst.frc.team5542.robot.commands.auto.left.LeftAuto;
+import org.usfirst.frc.team5542.robot.commands.auto.line.LineAuto;
+import org.usfirst.frc.team5542.robot.commands.auto.middle.MiddleAuto;
 import org.usfirst.frc.team5542.robot.commands.auto.right.RightAuto;
 
 import edu.wpi.first.wpilibj.CameraServer;
@@ -41,7 +42,8 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         CameraServer server = CameraServer.getInstance();
         server.startAutomaticCapture();
-		chooser.addDefault("Line auto", new LineAuto());
+        chooser.addDefault("Line auto", new LineAuto());
+		chooser.addObject("Middle auto", new MiddleAuto());
 		chooser.addObject("Left auto", new LeftAuto());
 		chooser.addObject("Right auto", new RightAuto());
 		SmartDashboard.putData("Auto mode", chooser);
