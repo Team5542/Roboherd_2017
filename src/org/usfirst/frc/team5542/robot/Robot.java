@@ -3,7 +3,6 @@ package org.usfirst.frc.team5542.robot;
 
 import org.usfirst.frc.team5542.robot.commands.CommandBase;
 import org.usfirst.frc.team5542.robot.commands.auto.AutoBase;
-import org.usfirst.frc.team5542.robot.commands.auto.left.LeftAuto;
 import org.usfirst.frc.team5542.robot.commands.auto.line.LineAuto;
 import org.usfirst.frc.team5542.robot.commands.auto.middle.MiddleAuto;
 import org.usfirst.frc.team5542.robot.commands.auto.right.RightAuto;
@@ -45,7 +44,7 @@ public class Robot extends IterativeRobot {
         chooser.addDefault("Line auto", new LineAuto());
 		chooser.addObject("Middle auto", new MiddleAuto());
 		//chooser.addObject("Left auto", new LeftAuto());
-		//chooser.addObject("Right auto", new RightAuto());
+		chooser.addObject("Right auto", new RightAuto());
 		SmartDashboard.putData("Auto mode", chooser);
 		AutoBase.defineGroups();
 		DriverStation ds = DriverStation.getInstance();

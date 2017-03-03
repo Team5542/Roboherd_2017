@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.usfirst.frc.team5542.robot.commands.CommandBase;
-import org.usfirst.frc.team5542.robot.commands.auto.left.TurnLeftAuto;
 import org.usfirst.frc.team5542.robot.commands.auto.line.*;
 import org.usfirst.frc.team5542.robot.commands.auto.middle.MiddleForwardAuto;
-import org.usfirst.frc.team5542.robot.commands.auto.right.TurnRightAuto;
+import org.usfirst.frc.team5542.robot.commands.auto.right.RightForwardAuto;
 import org.usfirst.frc.team5542.robot.commands.auto.util.*;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -44,6 +43,13 @@ public abstract class AutoBase extends CommandBase {
 		middleCommands.add(new KickAuto("middle"));
 		middleCommands.add(new BackwardAuto());
 		middle.createCommandGroup("middle", middleCommands);
+		
+		ArrayList<Command> rightCommands = new ArrayList<Command>();
+		AutoCommandGroup right = new AutoCommandGroup();
+		rightCommands.add(new RightForwardAuto());
+		rightCommands.add(new KickAuto("right"));
+		rightCommands.add(new BackwardAuto());
+		right.createCommandGroup("right", rightCommands);
 		
 		/*(AutoCommandGroup left = new AutoCommandGroup("left");
 		left.addCommand(new FirstForwardAuto("left"));
