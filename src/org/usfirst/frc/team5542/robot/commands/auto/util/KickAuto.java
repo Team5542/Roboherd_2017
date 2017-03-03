@@ -9,10 +9,10 @@ import org.usfirst.frc.team5542.robot.commands.auto.AutoBase;
  *
  */
 public class KickAuto extends AutoBase {
-	String autoName;
+	static String autoName;
     public KickAuto(String autoName) {
         requires(servos);
-        this.autoName = autoName;
+        KickAuto.autoName = autoName;
     }
     boolean finished;
     // Called just before this Command runs the first time
@@ -22,7 +22,7 @@ public class KickAuto extends AutoBase {
 
 			@Override
 			public void run() {
-		    	servos.setKickPos(.35);
+		    	servos.setKickPos(.45);
 		    	new Timer().schedule(new TimerTask(){
 
 					@Override
@@ -33,12 +33,11 @@ public class KickAuto extends AutoBase {
 		    	}, 1000L);
 			}
     		
-    	}, 1000);
+    	}, 1000L);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	executeNextCommand(autoName);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -48,6 +47,7 @@ public class KickAuto extends AutoBase {
 
     // Called once after isFinished returns true
     protected void end() {
+    	executeNextCommand(autoName);
     }
 
     // Called when another command which requires one or more of the same

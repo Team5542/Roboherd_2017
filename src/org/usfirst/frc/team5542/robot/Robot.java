@@ -44,8 +44,8 @@ public class Robot extends IterativeRobot {
         server.startAutomaticCapture();
         chooser.addDefault("Line auto", new LineAuto());
 		chooser.addObject("Middle auto", new MiddleAuto());
-		chooser.addObject("Left auto", new LeftAuto());
-		chooser.addObject("Right auto", new RightAuto());
+		//chooser.addObject("Left auto", new LeftAuto());
+		//chooser.addObject("Right auto", new RightAuto());
 		SmartDashboard.putData("Auto mode", chooser);
 		AutoBase.defineGroups();
 		DriverStation ds = DriverStation.getInstance();
