@@ -6,9 +6,11 @@ import org.usfirst.frc.team5542.robot.commands.auto.AutoBase;
  *
  */
 public class BackwardAuto extends AutoBase {
-
-    public BackwardAuto() {
+	
+	String name;
+    public BackwardAuto(String name) {
         requires(driveTrain);
+        this.name = name;
     }
     long startTime;
     // Called just before this Command runs the first time
@@ -28,6 +30,7 @@ public class BackwardAuto extends AutoBase {
 
     // Called once after isFinished returns true
     protected void end() {
+    	executeNextCommand(name);
     }
 
     // Called when another command which requires one or more of the same

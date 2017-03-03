@@ -41,14 +41,16 @@ public abstract class AutoBase extends CommandBase {
 		AutoCommandGroup middle = new AutoCommandGroup();
 		middleCommands.add(new MiddleForwardAuto());
 		middleCommands.add(new KickAuto("middle"));
-		middleCommands.add(new BackwardAuto());
+		middleCommands.add(new BackwardAuto("middle"));
+		middleCommands.add(new CloseAuto());
 		middle.createCommandGroup("middle", middleCommands);
 		
 		ArrayList<Command> rightCommands = new ArrayList<Command>();
 		AutoCommandGroup right = new AutoCommandGroup();
 		rightCommands.add(new RightForwardAuto());
-		rightCommands.add(new KickAuto("right"));
-		rightCommands.add(new BackwardAuto());
+		//rightCommands.add(new KickAuto("right"));
+		//rightCommands.add(new BackwardAuto("right"));
+		//rightCommands.add(new CloseAuto());
 		right.createCommandGroup("right", rightCommands);
 		
 		/*(AutoCommandGroup left = new AutoCommandGroup("left");

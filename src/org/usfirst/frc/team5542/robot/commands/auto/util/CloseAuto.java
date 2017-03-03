@@ -1,42 +1,56 @@
-package org.usfirst.frc.team5542.robot.commands.auto.line;
+package org.usfirst.frc.team5542.robot.commands.auto.util;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 import org.usfirst.frc.team5542.robot.commands.auto.AutoBase;
 
 /**
  *
  */
-public class LineForwardAuto extends AutoBase {
+public class CloseAuto extends AutoBase {
 
-    public LineForwardAuto() {
-        requires(driveTrain);
+    public CloseAuto() {
+        requires(servos);
     }
-
-    // Called just before this Command runs the first time
-   static long startTime;
-
+    
+    static boolean finished = false;
     // Called just before this Command runs the first time
     protected void initialize() {
-    	startTime = System.currentTimeMillis();
+    	servos.setKickPos(0);
+    	new Timer().schedule(new TimerTask(){
+
+			@Override
+			public void run() {
+		    	servos.setGatePos(0);
+		    	new Timer().schedule(new TimerTask(){
+
+					@Override
+					public void run() {
+				    	finished = true;
+					}
+		    		
+		    	}, 1000L);
+			}
+    		
+    	}, 1000L);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	driveTrain.fprDrive(.5, 0, 1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return ((System.currentTimeMillis() - startTime) >= 5000);
+        return finished;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	driveTrain.fprDrive(0, 0, 1);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	driveTrain.fprDrive(0, 0, 1);
     }
 }
