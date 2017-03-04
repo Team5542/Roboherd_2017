@@ -54,7 +54,7 @@ public class FprDrive extends CommandBase {
     	
     	//y = Math.pow(y, 1.1);
     	//z = Math.pow(z, 1.1);
-    	driveTrain.fprDrive(move, turn, sensitivity);
+    	driveTrain.betterFpr(move, turn);
     }
 
     // Make this return true when this Command no longer needs to run execute()

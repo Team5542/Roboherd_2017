@@ -3,6 +3,7 @@ package org.usfirst.frc.team5542.robot.subsystems;
 import org.usfirst.frc.team5542.robot.RobotMap;
 import org.usfirst.frc.team5542.robot.commands.drive.FprDrive;
 
+import com.analog.adis16448.frc.ADIS16448_IMU;
 import com.ctre.CANTalon;
 
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -57,7 +58,8 @@ public class DriveTrain extends Subsystem {
 	}
 	
 	public void betterFpr(double move, double turn){
-		drive.correctingArcadeDrive(move, turn, 0);
+		ADIS16448_IMU imu = new ADIS16448_IMU();
+		drive.correctingArcadeDrive(move, turn, imu.getAngleX());
 	}
 
     public void initDefaultCommand() {
