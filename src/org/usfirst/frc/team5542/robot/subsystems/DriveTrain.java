@@ -17,6 +17,7 @@ public class DriveTrain extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	private RobotDrive myDrive;
+	private GyroDrive drive;
 	private CANTalon lfMotor, rfMotor, lbMotor, rbMotor;
 	
 	private DriveTrain(){
@@ -25,6 +26,7 @@ public class DriveTrain extends Subsystem {
 		lbMotor = new CANTalon(RobotMap.leftBackMotor);
 		rbMotor = new CANTalon(RobotMap.rightBackMotor);
 		myDrive = new RobotDrive(lfMotor, lbMotor, rbMotor, rfMotor);
+		drive = new GyroDrive(lfMotor, lbMotor, rbMotor, rfMotor);
 	}
 	
 	protected static DriveTrain instance;
@@ -52,6 +54,10 @@ public class DriveTrain extends Subsystem {
 		SmartDashboard.putNumber("right", right);
 		SmartDashboard.putNumber("sensitivity", sensitivity);
 		myDrive.tankDrive(left, right);
+	}
+	
+	public void betterFpr(double move, double turn){
+		drive.correctingArcadeDrive(move, turn, 0);
 	}
 
     public void initDefaultCommand() {
